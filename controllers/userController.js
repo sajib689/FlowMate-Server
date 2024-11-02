@@ -69,14 +69,14 @@ exports.getUsersByTeam = async (req, res) => {
 
     // Get the teamMembers IDs
     const { teamMembers } = team;
-    console.log(teamMembers);
+    // console.log(teamMembers);
 
     // Filter for active users in the specified team members
     const filter = {
       _id: { $in: teamMembers.map((id) => new ObjectId(id)) },
       status: "active",
     };
-    console.log(filter);
+    // console.log(filter);
     // Adjust the filter to match the user schema
     const result = await usersCollection.find(filter).toArray();
 
